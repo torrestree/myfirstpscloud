@@ -3,8 +3,8 @@
 <odoo>
     <data>
         <menuitem id="MenuRoot" name="培训管理" sequence="0"/>
-        <menuitem id="MenuSubject" parent="MenuRoot" action="action_training_subject" sequence="10"/>
-        <menuitem id="MenuLesson" parent="MenuRoot" action="action_training_lesson" sequence="20"/>
-        <menuitem id="MenuPerson" parent="MenuRoot" sequence="30"/>
+        <menuitem id="MenuSubject" parent="MenuRoot" action="ActSubjects" sequence="10"/>
+        <menuitem id="MenuLesson" parent="MenuRoot" action="ActLessons" sequence="20"/>
+        <menuitem id="MenuPerson" parent="MenuRoot" action="ActTeacher" sequence="30"/>
     </data>
 </odoo>
