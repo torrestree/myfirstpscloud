@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_MyCodes_Lesson,MyCodes.Models.Lesson,MyCodes.Models.model_MyCodes_Lesson,base.group_user,1,1,1,1
+access_MyCodes_Subject,MyCodes.Models.Lesson,MyCodes.Models.model_MyCodes_Subject,base.group_user,1,1,1,1
