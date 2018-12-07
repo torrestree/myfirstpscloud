@@ -1,0 +1,99 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="ActLessons" model="ir.actions.act_window">
+            <field name="name">课程</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">TrainingCodes.Models.Lesson</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="TreeLessons"/>
+            <field name="view_mode">tree,form,calendar,graph,pivot</field>
+        </record>
+        
+        <record id='CalenderLessons' model='ir.ui.view'>
+            <field name='model'>TrainingCodes.Models.Lesson</field>
+            <field name="priority" eval="2"/>
+            <field name="arch" type="xml">
+                <calendar string="课程日期" date_start="StartDate" date_stop="EndDate" color="TeacherID">
+                    <field name="Name"/>
+                    <field name="TeacherID"/>
+                    <field name="Seats"/>
+                </calendar>
+            </field>
+        </record>
+        
+        <record id="GraphLessons" model="ir.ui.view">
+            <field name="model">TrainingCodes.Models.Lesson</field>
+            <field name="arch" type="xml">
+                <graph string="课程">
+                    <field name="StartDate" type="row"/>
+                    <field name="EndDate" type="col"/>
+                    <field name="Seats" type="measure"/>
+                </graph>
+            </field>
+        </record>
+        
+        <record id="PivotLessons" model="ir.ui.view">
+            <field name="model">TrainingCodes.Models.Lesson</field>
+            <field name="arch" type="xml">
+                <pivot string="课程分析" disable_linking="True">
+                    <field name="Name" type="row"/>
+                    <field name="Seats" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+        
+        <record id="TreeLessons" model="ir.ui.view">
+            <field name="Name">TrainingCodes.Models.Lesson.tree</field>
+            <field name="model">TrainingCodes.Models.Lesson</field>
+            <field name="arch" type="xml">
+                <tree string="课程列表">
+                    <field name="Name"/>
+                    <field name="TeacherID"/>
+                    <field name="StartDate"/>
+                    <field name="EndDate"/>
+                    <field name="Seats"/>
+                    <field name="SubjectID"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="FormLessons" model="ir.ui.view">
+            <field name="name">TrainingCodes.Models.Lesson.form</field>
+            <field name="model">TrainingCodes.Models.Lesson</field>
+            <field name="arch" type="xml">
+                <form string="课程">
+                    <header>
+                        <button name="action_confirm" type="object" string="确认"  states="draft" class="btn-primary" />
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="Name" attrs="{'readonly': [('state', '=', 'confirm')]}" />
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="SubjectID" attrs="{'readonly': [('state', '=', 'confirm')]}"/>
+                                <field name="TeacherID" attrs="{'readonly': [('state', '=', 'confirm')]}"/>
+                                <field name="PersonID" attrs="{'readonly': [('state', '=', 'confirm')]}"/>
+                                <field name="Seats"/>
+                            </group>
+                            <group>
+                                <field name="StartDate" attrs="{'readonly': [('state', '=', 'confirm')]}"/>
+                                <field name="EndDate" attrs="{'readonly': [('state', '=', 'confirm')]}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="学生">
+                                <button name="%(action_training_student_regiester_view)d" type="action" string="学生注册"  states="confirm" />
+                                <field name="StudentIDs"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

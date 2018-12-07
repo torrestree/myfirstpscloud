@@ -1,0 +1,15 @@
+{
+    'name': 'MyCodes',
+    'version': '12.0.1.0',
+    'summary': 'PS Cloud Homework',
+    'author': "www.mypscloud.com",
+    'website': 'https://www.mypscloud.com/',
+    'category': 'Tools',
+    'depends': ['base'],
+    'data': ['Views/ViewLessons.xml','Views/ViewPerson.xml','Views/ViewSubjects.xml',],
+    'qweb': [],
+    'js': [],
+    'css': [],
+    'auto_install': False,
+    'application': True,
+}

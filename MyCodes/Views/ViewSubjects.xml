@@ -1,0 +1,57 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <record id="ActSubjects" model="ir.actions.act_window">
+            <field name="name">科目</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">TrainingCodes.Models.Subject</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="TreeSubjects"/>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <record id="TreeSubjects" model="ir.ui.view">
+            <field name="name">TrainingCodes.Models.Subject.tree</field>
+            <field name="model">TrainingCodes.Models.Subject</field>
+            <field name="arch" type="xml">
+                <tree string="科目列表">
+                    <field name="Name"/>
+                    <field name="TeacherID"/>
+                    <field name="Description"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="FormSubjects" model="ir.ui.view">
+            <field name="name">pscloud.training.subject.form</field>
+            <field name="model">pscloud.training.subject</field>
+            <field name="arch" type="xml">
+                <form string="课程">
+                   <sheet>
+                       <group>
+                            <group>
+                                <field name="Name"/>
+                            </group>
+                            <group>
+                                <field name="TeacherID"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="课程">
+                                <field name="LessonIDs">
+                                    <tree string="课程列表" editable="bottom">
+                                        <field name="Name"/>
+                                        <field name="TeacherID"/>
+                                        <field name="State"/>
+                                    </tree>
+                                </field>
+                                <field name="Description" class="oe_inline" placeholder="请填写备注信息..."/>
+                            </page>
+                       </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

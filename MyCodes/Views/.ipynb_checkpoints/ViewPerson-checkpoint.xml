@@ -1,0 +1,25 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <record id="ActTeacher" model="ir.actions.act_window">
+            <field name="name">教师</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="model">TrainingCodes.Models.Person</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">[('Type','=','Teacher')]</field>
+            <field name="context">{'default_is_teacher': True}</field>
+        </record>
+        
+        <record id="ActStudent" model="ir.actions.act_window">
+            <field name="name">学生</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="model">TrainingCodes.Models.Person</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">[('Type','=','Student')]</field>
+            <field name="context">{'default_is_student': True}</field>
+        </record>
+    </data>
+</odoo>
