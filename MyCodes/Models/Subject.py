@@ -2,6 +2,7 @@ from odoo import api, fields, models
 
 class Subject(models.Model):
     _name = 'MyCodes.Models.Lesson'
+    _description = "科目"
     
     name = fields.Char(string='Name')
     teacher_id = fields.Many2one('TrainingCodes.Person',string='负责人')
