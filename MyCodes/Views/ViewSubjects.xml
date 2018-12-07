@@ -16,9 +16,9 @@
             <field name="model">TrainingCodes.Models.Subject</field>
             <field name="arch" type="xml">
                 <tree string="科目列表">
-                    <field name="Name"/>
-                    <field name="TeacherID"/>
-                    <field name="Description"/>
+                    <field name="name"/>
+                    <field name="teacher_id"/>
+                    <field name="description"/>
                 </tree>
             </field>
         </record>
@@ -31,22 +31,22 @@
                    <sheet>
                        <group>
                             <group>
-                                <field name="Name"/>
+                                <field name="name"/>
                             </group>
                             <group>
-                                <field name="TeacherID"/>
+                                <field name="teacher_id"/>
                             </group>
                         </group>
                         <notebook>
                             <page string="课程">
-                                <field name="LessonIDs">
+                                <field name="lesson_ids">
                                     <tree string="课程列表" editable="bottom">
-                                        <field name="Name"/>
-                                        <field name="TeacherID"/>
-                                        <field name="State"/>
+                                        <field name="name"/>
+                                        <field name="teacher_id"/>
+                                        <field name="state"/>
                                     </tree>
                                 </field>
-                                <field name="Description" class="oe_inline" placeholder="请填写备注信息..."/>
+                                <field name="description" class="oe_inline" placeholder="请填写备注信息..."/>
                             </page>
                        </notebook>
                     </sheet>

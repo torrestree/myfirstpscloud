@@ -14,10 +14,10 @@
             <field name='model'>TrainingCodes.Models.Lesson</field>
             <field name="priority" eval="2"/>
             <field name="arch" type="xml">
-                <calendar string="课程日期" date_start="StartDate" date_stop="EndDate" color="TeacherID">
-                    <field name="Name"/>
-                    <field name="TeacherID"/>
-                    <field name="Seats"/>
+                <calendar string="课程日期" date_start="startdate" date_stop="enddate" color="teacher_id">
+                    <field name="name"/>
+                    <field name="teacher_id"/>
+                    <field name="seats"/>
                 </calendar>
             </field>
         </record>
@@ -26,9 +26,9 @@
             <field name="model">TrainingCodes.Models.Lesson</field>
             <field name="arch" type="xml">
                 <graph string="课程">
-                    <field name="StartDate" type="row"/>
-                    <field name="EndDate" type="col"/>
-                    <field name="Seats" type="measure"/>
+                    <field name="startdate" type="row"/>
+                    <field name="enddate" type="col"/>
+                    <field name="seats" type="measure"/>
                 </graph>
             </field>
         </record>
@@ -37,8 +37,8 @@
             <field name="model">TrainingCodes.Models.Lesson</field>
             <field name="arch" type="xml">
                 <pivot string="课程分析" disable_linking="True">
-                    <field name="Name" type="row"/>
-                    <field name="Seats" type="measure"/>
+                    <field name="name" type="row"/>
+                    <field name="seats" type="measure"/>
                 </pivot>
             </field>
         </record>
@@ -48,12 +48,12 @@
             <field name="model">TrainingCodes.Models.Lesson</field>
             <field name="arch" type="xml">
                 <tree string="课程列表">
-                    <field name="Name"/>
-                    <field name="TeacherID"/>
-                    <field name="StartDate"/>
-                    <field name="EndDate"/>
-                    <field name="Seats"/>
-                    <field name="SubjectID"/>
+                    <field name="name"/>
+                    <field name="teacher_id"/>
+                    <field name="startdate"/>
+                    <field name="enddate"/>
+                    <field name="seats"/>
+                    <field name="subject_id"/>
                 </tree>
             </field>
         </record>
@@ -70,25 +70,25 @@
                     <sheet>
                         <div class="oe_title">
                             <h1>
-                                <field name="Name" attrs="{'readonly': [('state', '=', 'confirm')]}" />
+                                <field name="name" attrs="{'readonly': [('state', '=', 'confirm')]}" />
                             </h1>
                         </div>
                         <group>
                             <group>
-                                <field name="SubjectID" attrs="{'readonly': [('state', '=', 'confirm')]}"/>
-                                <field name="TeacherID" attrs="{'readonly': [('state', '=', 'confirm')]}"/>
-                                <field name="PersonID" attrs="{'readonly': [('state', '=', 'confirm')]}"/>
-                                <field name="Seats"/>
+                                <field name="subject_id" attrs="{'readonly': [('state', '=', 'confirm')]}"/>
+                                <field name="teacher_id" attrs="{'readonly': [('state', '=', 'confirm')]}"/>
+                                <field name="person_id" attrs="{'readonly': [('state', '=', 'confirm')]}"/>
+                                <field name="seats"/>
                             </group>
                             <group>
-                                <field name="StartDate" attrs="{'readonly': [('state', '=', 'confirm')]}"/>
-                                <field name="EndDate" attrs="{'readonly': [('state', '=', 'confirm')]}"/>
+                                <field name="startdate" attrs="{'readonly': [('state', '=', 'confirm')]}"/>
+                                <field name="enddate" attrs="{'readonly': [('state', '=', 'confirm')]}"/>
                             </group>
                         </group>
                         <notebook>
                             <page string="学生">
                                 <button name="%(action_training_student_regiester_view)d" type="action" string="学生注册"  states="confirm" />
-                                <field name="StudentIDs"/>
+                                <field name="student_ids"/>
                             </page>
                         </notebook>
                     </sheet>
