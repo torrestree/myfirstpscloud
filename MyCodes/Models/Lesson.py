@@ -11,4 +11,4 @@ class Lesson(models.Model):
     student_ids = fields.Many2many('TrainingCodes.Person',string='学生')
     subject_id = fields.Many2one('TrainingCodes.Subject',string='科目')
     person_id = fields.Many2one('TrainingCodes.Person',related='subject_id.teacher_id',readonly=True)
-    description = field.Text(string='描述')
+    #description = field.Text(string='描述')
