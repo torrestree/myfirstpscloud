@@ -5,7 +5,7 @@ class Lesson(models.Model):
     _description = "课程"
     
     name = fields.Char(string='Name')
-    teacher_id = fields.Many2one('TrainingCodes.Person',string='老师')
+    teacher_id = fields.Many2one('MyCodes.Models.Person',string='老师')
     startdate = fields.Date(string='开始日期')
     enddate = fields.Date(string='结束日期')
     seats = fields.Integer(string='座位数')
