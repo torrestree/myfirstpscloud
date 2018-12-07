@@ -1,7 +1,7 @@
 from odoo import api, fields, models
 
 class Lesson:Name='MyCodes.Models.Lesson'
-    Name=fields.Char(string='名称')
+    Name=fields.Char(string='Name')
     TeacherID=fields.Many2one('TrainingCodes.Person',string='老师')
     StartDate=fields.Date(string='开始日期')
     EndDate=fields.Date(string='结束日期')
